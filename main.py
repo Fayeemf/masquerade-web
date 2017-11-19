@@ -2,7 +2,37 @@ import os
 import re
 from console_logging.console import Console
 console = Console()
+import datetime, time
 
+def make_sitemap(urls):
+    entries = []
+    timestamp = datetime.datetime.fromtimestamp(time.time())
+    gmtoffset = timestamp.astimezone().utcoffset().seconds
+    timestamp = "{year}-{month}-{day}T{hour}:{minute}:{second}+{timeshift}".format(
+        year = timestamp.year, month = timestamp.month, day = timestamp.day,
+        hour = timestamp.hour, minute = timestamp.minute, second = timestamp.second,
+        timeshift = '%2d:%2d'%(gmtoffset//3600, (gmtoffset % 3600)//60)
+    )
+    for url in urls:
+        sitemap_entry  = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(url=url, timestamp=timestamp)
+        entries.append(sitemap_entry)
+    sitemap_xml = '''<?xml version="1.0" encoding="UTF-8"?>
+                        <urlset
+                            xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                                    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+                        <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+                        <url>
+                        <loc>http://masq.gq/</loc>
+                        <lastmod>2017-11-19T19:27:39+00:00</lastmod>
+                        <priority>1.00</priority>
+                        </url>
+                        %s
+                        </urlset>''' % '\n'.join(entries)
+    with open('sitemap.xml','w') as f: f.write(sitemap_xml)
+    return
 
 def parse_blog(blogdat: list):
     blog = dict()
@@ -222,4 +252,5 @@ for file in os.listdir('./blogs'):
     with open('index.html', 'w') as index_file:
         index_file.write(index_html)
     console.info("Wrote index HTML.")
+    make_sitemap([blog_post['url'] for blog_post in blog_posts])
 console.success("Finished blog iteration.")
