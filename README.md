@@ -14,6 +14,8 @@ Examples provided in `blogs/example.blog.example` and `blog/example.html`.
 
 (Or set up a git hook on your machine that runs this command whenever you commit, then adds all the created files and commits them as well. One hook may be `./.git/hooks/pre-commit`, with the SHEBANG and `python main.py && git add --all`.)
 
+It will recreate the `index.html` file, as well as [re]create blog posts present in the `blogs` directory.
+
 ## Credits
 
 `CodePen` for making it easy to find good HTML.
