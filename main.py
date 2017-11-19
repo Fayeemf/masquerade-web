@@ -2,19 +2,22 @@ import os
 import re
 from console_logging.console import Console
 console = Console()
-import datetime, time
+import datetime
+import time
+
 
 def make_sitemap(urls):
     entries = []
     timestamp = datetime.datetime.fromtimestamp(time.time())
     gmtoffset = timestamp.astimezone().utcoffset().seconds
     timestamp = "{year}-{month}-{day}T{hour}:{minute}:{second}+{timeshift}".format(
-        year = timestamp.year, month = timestamp.month, day = timestamp.day,
-        hour = timestamp.hour, minute = timestamp.minute, second = timestamp.second,
-        timeshift = '%02d:%02d'%(gmtoffset//3600, (gmtoffset % 3600)//60)
+        year=timestamp.year, month=timestamp.month, day=timestamp.day,
+        hour=timestamp.hour, minute=timestamp.minute, second=timestamp.second,
+        timeshift='%02d:%02d' % (gmtoffset // 3600, (gmtoffset % 3600) // 60)
     )
     for url in urls:
-        sitemap_entry  = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(url='http://masq.gq%s'%url, timestamp=timestamp)
+        sitemap_entry = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(
+            url='http://masq.gq%s' % url, timestamp=timestamp)
         entries.append(sitemap_entry)
     sitemap_xml = '''<?xml version="1.0" encoding="UTF-8"?>
                         <urlset
@@ -31,8 +34,10 @@ def make_sitemap(urls):
                         </url>
                         %s
                         </urlset>''' % '\n'.join(entries)
-    with open('sitemap.xml','w') as f: f.write(sitemap_xml)
+    with open('sitemap.xml', 'w') as f:
+        f.write(sitemap_xml)
     return
+
 
 def parse_blog(blogdat: list):
     blog = dict()
@@ -109,7 +114,7 @@ def render_blog(blog: dict):
     body = render_body(blog['body'])
     blog_posts.append({
         'title': blog['title'],
-        'date': date,
+        'date': date, 'time': time,
         'excerpt': blog['excerpt']
     })
     analytics_tag = '''<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -155,7 +160,7 @@ for file in os.listdir('./blogs'):
             blog_posts[-1]['url'] = '/blog/%s.html' % blog_id
         console.info("Wrote blog id::%s" % blog_id)
     blog_posts.sort(key=lambda blog_post: int(
-        blog_post['date']['m']) * 32 + int(blog_post['date']['d']) + int(blog_post['date']['y']) * 367)
+        blog_post['date']['m']) * 32 * 3600 + int(blog_post['date']['d']) * 3600 + int(blog_post['date']['y']) * 367 * 3600 + int(blog_post['time']['h']) * 60 + int(blog_post['time']['m'][:2]))
     blog_posts.reverse()
     index = []
     for blog_post in blog_posts:
