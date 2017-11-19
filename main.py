@@ -178,7 +178,7 @@ for file in os.listdir('./blogs'):
                                    blog_post['date']['d'],
                                    blog_post['date']['y']),
                 excerpt=blog_post['excerpt'],
-                url=blog_post['url']
+                url=blog_post['url'][:-5]
             ))
         console.info("Created index entry for post \"%s\"" %
                      blog_post['title'])
