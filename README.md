@@ -16,6 +16,8 @@ Examples provided in `blogs/example.blog.example` and `blog/example.html`.
 
 It will recreate the `index.html` file, as well as [re]create blog posts present in the `blogs` directory.
 
+3. Remove the `CNAME` file, or change the CNAME to the correct custom domain.
+
 ## Credits
 
 We :heart: `CodePen`, especially for the [front page](https://codepen.io/JeffAspen/pen/GZNqPm) and [blog posts](https://codepen.io/j-w-v/pen/JXdRqd) templates.
