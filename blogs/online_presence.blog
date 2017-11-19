@@ -1,0 +1,45 @@
+I hack my life. You should too.
+11/19/17 8:12PM
+hacks, life
+I've always been indiscrimninately lazy. You'll never find me working on something due in a week or spreading out my workload. You'll never find me spending an excruciating amount of time to learn or understand something. I've been like this since I was a kid; I'm very impatient and hate to wait and invest much time and effort just to get a small reward.
+
+
+I've always been indiscrimninately lazy.
+
+You'll never find me working on something due in a week or spreading out my workload. You'll never find me spending an excruciating amount of time to learn or understand something. I've been like this since I was a kid; I'm very impatient and hate to wait and invest much time and effort just to get a small reward.
+
+What comes next is difficult to explain; the concept of "hacking your life" isn't something that comes naturally to most people. The mentality in itself is something I (very ironically) spent a long time acquiring and understanding, but I think it's best related to games. Or maybe as someone who LOVES games, I'm just relating to the subject out of habit. Regardless, here's the quick and dirty gamer explanation.
+---
+It's no fun at all to grind for hundreds of hours, farming the exact same situation over and over again to level up your player or advance in the game. That sort of monotony is _boring_ and is only advanced by paywalls and "premium" features (I *hate* those--I'll pay for your game but don't keep asking for money). So gamers naturally tend to find ways around this; sometimes through quick tricks and sometimes through "cheats."
+
+[cheats](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB3yW1jW6sNOsuBTg1ZLbSgv-iqpDlQzw-MF6Xoyibr4gFL2G4)
+
+I understand many gamers would never cheat, as it probably ruins the game for many. For me though, myself being very impatient, I took very kindly to "cheats," and was excited by the fact that I would be going over the game's intended purpose and gain new abilities--it was like suddenly discovering a new feature.
+
+This empowered me to find my own "cheats," and develop hacks for games. This, in fact, was a game in itself for me; a challenge as to whether I could find a way outside the sandbox created by the developers.
+---
+Now, imagine applying this same logic to life. If only there were magic codes we could input to suddenly gain amazing abilities. _If only._ 
+
+But there are!
+
+Our lives have become irreversibly tangled with the internet: our basic needs, our communications, even most of our utilities are all on connected, electronic devices. Exploit this system, and you've exploited life.
+
+Lucky for me, I've been coding for a few years and know my way around systems. With a bit of automation knowledge and some easy algorithms, it's really easy to code one of these "actual life hacks."
+
+The best example I've got is probably online presence.
+
+Online presence. To capture the maximum network size for my online presence, I targeted certain important platforms that I felt would allow me the maximum value for my presence; these platforms being LinkedIn for expanding my professional network, GitHub for becoming an acclaimed developer, and Medium to increase the audience I can reach with my own marketing appeal.
+
+First I started with GitHub. GitHub is made to be accessible to developers, so their entire website is easily scrapable and traversable using some quick automation. With some <a href="http://www.seleniumhq.org">Selenium</a> magic, I was able to quickly create a bot that could sign up with given usernames, passwords, and emails, and then verify the email using an open solution. THe bot would then follow myself and a few other developers, star my repos, and then terminate itself. I created an enormous wordlist and wordlist utility to quickly generate fake identities, and scraped an open VPN list to easily pop into proxies and hide my identity. Using a bit more generative magic, I even had the bots make their own profiles and randomize their activity. *I'll discuss this in another post at a later point in time,* as this was actually a long and difficult battle that ended in most of my bots being exterminated. However, the temporary popularity I achieved increased my exposure until I got _real, bonafide users_ following and starring me!
+
+This result was important for my next conquest--Medium. Using the same wordlist and bot technique from GitHub (both GitHub and Medium _really_ need to get captchas, although I'll show in another post how those can be cracked as well), I was able to create a Medium bot army to clap for my articles. Although many were discovered and shut down, applying the same mob mentality+exposure principle used in the GitHub project, I was able to accrue over 6.5k claps and 60+ followers in just 5 hours with just 1 story. After introducing it to a friend, he was able to generate actual revenue with his newfound exposure.
+
+Of course, these are relatively small titans compared to LinkedIn. LinkedIn is famous for having extremely rigorous anti-botting walls, to the point where even <a href="https://www.csoonline.com/article/2135787/access-control/stuck-in-captcha-hell--when-security-disables.html">actual users</a> have expressed their distaste. This, of course, made using my extensive botting library/toolkit ~fucking impossible~ very difficult. To break LinkedIn, I instead used a chrome extension. It searches for terms I give it (I'm a startup guy so I gave it the terms, 'founder' 'investor' 'vc partner'), and then begins to mass add people it finds with >(threshold) common connections. The threshold is determined by my own network, as people tend to add others who have many mutual connections; specifically, 1/15 of my connections (I started it with 150 connections, so 10 was my threshold). With this, I suddenly began getting several connections, and as my network grew, the threshold was raised and my audience expanded. Cut to 8 hours later, and I've got 1200 connections, several founders and investors, an inbox full of messages asking for investment, recruitment, or just coffee, and an amazing reach of >800 followers.
+
+With this, my online presence hack was complete. I could now appeal to a large number of people and expand my *personal brand* on my own terms.
+
+It's not too difficult to pull this off yourself--think about where you derive value, how the value you derive is measured, and how you can break that system to gain as much value as possible.
+
+Of course, this does raise several ethics concerns; but I still hacked my life, and I've never once thought about going back.
+
+Try it out! I highly recommend it.
