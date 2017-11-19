@@ -93,9 +93,9 @@ def render_blog(blog: dict):
                     <p>{body}</p>
                     </div>
                 </body>
-                </html>'''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n<link rel="stylesheet" href="../css/blog.css"></head>',
-                                 title=title, timestamp=timestamp,
-                                 body=body, tags=blog['tags'])
+                </html>'''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n<link rel="stylesheet" href="../css/blog.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>',
+                                  title=title, timestamp=timestamp,
+                                  body=body, tags=blog['tags'])
 
 
 try:

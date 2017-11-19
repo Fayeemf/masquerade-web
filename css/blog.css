@@ -2,6 +2,7 @@ h1 {
     line-height: 72px;
     margin: 24px 0;
     color: White;
+    text-align:center;
 }
 
 h6 {
@@ -20,7 +21,7 @@ p {
     color: #bbbbc4;
 }
 
-BODY {
+body {
     background: #282931;
     -webkit-font-smoothing: antialiased;
     font-family: 'Varela Round', sans-serif;
