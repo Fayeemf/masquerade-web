@@ -133,6 +133,10 @@ def render_blog(blog: dict):
                 <body>
                     <div class="container">
                     <h1>{title}</h1>
+                    <a href="../" style="
+                        font-weight: 800;
+                        text-decoration: unset;
+                    ">&lt; Back to Blog</a>
                     <h6>Tagged: {tags}
                     <span>{timestamp}</span></h6>
                     <p>{body}</p>

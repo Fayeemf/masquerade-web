@@ -2,9 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 h1 {
-    line-height: 144px;
+    line-height: 7\64px;
     margin: 24px 0;
-    color: #222; font-size: 32pt;
+    padding-bottom: 10%;
+    color: #222; font-size: 3.6em;
     text-align:center; font-family: 'Montserrat', sans-serif !important;
     text-transform: uppercase;
 }
@@ -42,4 +43,8 @@ body {
 
 img {
     width: 70%; display:block; margin:auto;
+}
+
+a {
+    color: #46adad;
 }
