@@ -4,7 +4,7 @@ Open-source engine behind the Many Masqs blog.
 
 Templating using the `template.blog` file.
 
-Examples provided in `blogs/example.blog` and `blog/example.html`.
+Examples provided in `blogs/example.blog.example` and `blog/example.html`.
 
 ## Usage:
 

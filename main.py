@@ -177,8 +177,7 @@ for file in os.listdir('./blogs'):
 
                     </body>
 
-                    </html>
-                    console.success("Finished blogging.")''' % '\n'.join(rows)
+                    </html>''' % '\n'.join(rows)
     with open('index.html','w') as index_file:
         index_file.write(index_html)
     console.info("Wrote index HTML.")
