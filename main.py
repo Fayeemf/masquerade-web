@@ -11,7 +11,7 @@ def make_sitemap(urls):
     timestamp = "{year}-{month}-{day}T{hour}:{minute}:{second}+{timeshift}".format(
         year = timestamp.year, month = timestamp.month, day = timestamp.day,
         hour = timestamp.hour, minute = timestamp.minute, second = timestamp.second,
-        timeshift = '%2d:%2d'%(gmtoffset//3600, (gmtoffset % 3600)//60)
+        timeshift = '%02d:%02d'%(gmtoffset//3600, (gmtoffset % 3600)//60)
     )
     for url in urls:
         sitemap_entry  = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(url='http://masq.gq%s'%url, timestamp=timestamp)
