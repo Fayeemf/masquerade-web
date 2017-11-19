@@ -165,7 +165,7 @@ for file in os.listdir('./blogs'):
                                 <div class="col-md-12">
                                     <h1>Masq<fade>uerade</fade> Blog</h1>
                                     <div class="seperator"></div>
-                                    <p></p>
+                                    <p style="padding-bottom:50px;"></p>
                                 </div>
                             </div>
                         </section>

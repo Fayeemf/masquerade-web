@@ -1,15 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 body {
-  background: #fbfbfb;
+  background: #aaa;
   font-family: 'Merriweather', serif;
   font-size: 16px;
   color: #777;
 }
 
 fade {
-  color: #abb;
+  color: #aff;
 }
+
 
 h1, h4 {
   font-family: 'Montserrat', sans-serif;
@@ -17,7 +18,7 @@ h1, h4 {
 }
 
 .row {
-  padding: 50px 0;
+  padding: 0px 0px 0px 0px;
 }
 
 .seperator {
