@@ -39,3 +39,7 @@ body {
 .container {
     width: 65%;
 }
+
+img {
+    width: 70%; display:block; margin:auto;
+}
