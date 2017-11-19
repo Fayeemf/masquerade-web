@@ -45,7 +45,7 @@ def render_blog(blog: dict):
                 body_.append('<hr>')
             elif line == '~':
                 body_.append('<hr>')  # TODO: add tilda
-            elif len(line)>0 and len(re.sub('(\[).+(\])(\().+(\))', '', line)) == 0:
+            elif len(line) > 0 and len(re.sub('(\[).+(\])(\().+(\))', '', line)) == 0:
                 alt_text = line[1:line.rfind(']')]
                 link = line[line.find('(') + 1:-1]
                 body_.append('<img src="{link}" alt="{alt}">'.format(
@@ -84,7 +84,7 @@ def render_blog(blog: dict):
             {body}            
         </body>
     </html>
-    '''.format(head='<head><title>Masquerade Blog</title></head>',
+    '''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n</head>',
                title=title, timestamp=timestamp,
                body=body)
 
