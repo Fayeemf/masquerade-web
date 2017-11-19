@@ -116,6 +116,7 @@ for file in os.listdir('./blogs'):
         console.info("Wrote blog id::%s" % blog_id)
     blog_posts.sort(key=lambda blog_post: int(
         blog_post['date']['m']) * 32 + int(blog_post['date']['d']) + int(blog_post['date']['y']) * 367)
+    blog_posts.reverse()
     index = []
     for blog_post in blog_posts:
         index.append(
