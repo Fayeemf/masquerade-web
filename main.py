@@ -75,7 +75,7 @@ def render_blog(blog: dict):
                     line = '%s<s>%s</s>%s' % (line[:occ1],
                                               line[occ1 + 1:occ2], line[occ2 + 1:])
                 body_.append('<p>%s</p>'%line)
-        return '\n<br>\n'.join(body_)
+        return '\n'.join(body_)
     body = render_body(blog['body'])
     blog_posts.append({
         'title': blog['title'],
