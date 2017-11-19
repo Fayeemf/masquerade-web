@@ -74,7 +74,7 @@ def render_blog(blog: dict):
                     occ2 = occ1 + line[occ1 + 1:].find('~') + 1
                     line = '%s<s>%s</s>%s' % (line[:occ1],
                                               line[occ1 + 1:occ2], line[occ2 + 1:])
-                body_.append('<p>%s</p>'%line)
+                body_.append('<p>%s</p>' % line)
         return '\n'.join(body_)
     body = render_body(blog['body'])
     blog_posts.append({
@@ -82,6 +82,16 @@ def render_blog(blog: dict):
         'date': date,
         'excerpt': blog['excerpt']
     })
+    analytics_tag = '''<!-- Global site tag (gtag.js) - Google Analytics -->
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47879725-7"></script>
+                    <script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'UA-47879725-7');
+                    </script>
+                    '''
     return '''<!DOCTYPE html>
                 <html>
                 {head}
@@ -93,7 +103,7 @@ def render_blog(blog: dict):
                     <p>{body}</p>
                     </div>
                 </body>
-                </html>'''.format(head='<head>\n<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">\n<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">\n<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">\n<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">\n<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">\n<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">\n<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">\n<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">\n<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">\n<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">\n<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">\n<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">\n<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">\n<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">\n<link rel="manifest" href="/manifest.json">\n<meta name="msapplication-TileColor" content="#ffffff">\n<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masq Blog</title>\n<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\n<link rel="stylesheet" href="../css/blog.css">\n<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>',
+                </html>'''.format(head='<head>\n{analytics}\n<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">\n<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">\n<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">\n<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">\n<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">\n<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">\n<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">\n<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">\n<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">\n<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">\n<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">\n<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">\n<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">\n<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">\n<link rel="manifest" href="/manifest.json">\n<meta name="msapplication-TileColor" content="#ffffff">\n<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masq Blog</title>\n<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\n<link rel="stylesheet" href="../css/blog.css">\n<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>'.format(analytics=analytics_tag),
                                   title=title, timestamp=timestamp,
                                   body=body, tags=blog['tags'])
 
@@ -147,6 +157,15 @@ for file in os.listdir('./blogs'):
                     <html>
 
                     <head>
+                        <!-- Global site tag (gtag.js) - Google Analytics -->
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47879725-7"></script>
+                        <script>
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'UA-47879725-7');
+                        </script>
                         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
                         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
                         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
