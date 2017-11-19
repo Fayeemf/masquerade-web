@@ -83,19 +83,19 @@ def render_blog(blog: dict):
         'excerpt': blog['excerpt']
     })
     return '''<!DOCTYPE html>
-    <html>
-        {head}
-        <body>
-            {title}
-            {timestamp}
-            <br>
-            <br>
-            {body}
-        </body>
-    </html>
-    '''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n</head>',
-               title=title, timestamp=timestamp,
-               body=body)
+                <html>
+                {head}
+                <body>
+                    <div class="container">
+                    <h1>{title}</h1>
+                    <h6>Tagged: {tags}
+                    <span>{timestamp}</span></h6>
+                    <p>{body}</p>
+                    </div>
+                </body>
+                </html>'''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n<link rel="stylesheet" href="../css/blog.css"></head>',
+                                 title=title, timestamp=timestamp,
+                                 body=body, tags=blog['tags'])
 
 
 try:
