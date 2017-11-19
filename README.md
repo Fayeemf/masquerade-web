@@ -12,7 +12,7 @@ Examples provided in `blogs/example.blog` and `blog/example.html`.
 
 2. Run `python main.py` to generate blogs.
 
-(Or set up a git hook on your machine that runs this command whenever you commit, then adds all the created files and commits them as well.)
+(Or set up a git hook on your machine that runs this command whenever you commit, then adds all the created files and commits them as well. One hook may be `./.git/hooks/pre-commit`, with content `python main.py && git add --all`.)
 
 ## Credits
 
