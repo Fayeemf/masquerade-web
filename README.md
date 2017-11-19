@@ -18,4 +18,4 @@ It will recreate the `index.html` file, as well as [re]create blog posts present
 
 ## Credits
 
-`CodePen` for making it easy to find good HTML.
+We :heart: `CodePen`, especially for the [front page](https://codepen.io/JeffAspen/pen/GZNqPm) and [blog posts](https://codepen.io/j-w-v/pen/JXdRqd) templates.
