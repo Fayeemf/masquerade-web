@@ -1,29 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 h1 {
-    line-height: 72px;
+    line-height: 144px;
     margin: 24px 0;
-    color: White;
-    text-align:center;
+    color: #222; font-size: 32pt;
+    text-align:center; font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase;
 }
 
 h6 {
-    line-height: 24px;
-    color: #fc3565;
+    line-height: 30px; font-family: 'Montserrat';
+    color: salmon; font-weight: 600; font-size: 18px;
 }
 
 h6 span {
-    color: white;
+    color: #4af; font-size: 11pt;
     float: right;
 }
 
 p {
-    line-height: 24px;
+    line-height: 40px;
     margin: 24px 0;
-    color: #bbbbc4;
+    color: #000; font-size: 18px;
 }
 
 body {
-    background: #282931;
+    background: #fbfbfb;
     -webkit-font-smoothing: antialiased;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Merriweather', sans-serif !important;
     height: 100%;
+}
+
+.container {
+    width: 65%;
 }
