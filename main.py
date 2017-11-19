@@ -14,7 +14,7 @@ def make_sitemap(urls):
         timeshift = '%2d:%2d'%(gmtoffset//3600, (gmtoffset % 3600)//60)
     )
     for url in urls:
-        sitemap_entry  = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(url=url, timestamp=timestamp)
+        sitemap_entry  = "<url>\n<loc>{url}</loc>\n<lastmod>{timestamp}</lastmod>\n<priority>0.8</priority></url>".format(url='http://masq.gq%s'%url, timestamp=timestamp)
         entries.append(sitemap_entry)
     sitemap_xml = '''<?xml version="1.0" encoding="UTF-8"?>
                         <urlset
