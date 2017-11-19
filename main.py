@@ -7,6 +7,7 @@ console = Console()
 def parse_blog(blogdat: list):
     blog = dict()
     blog['title'] = blogdat[0][:-1]
+    blog['excerpt'] = blogdat[3]
 
     def parse_timestamp(timestamp: str):
         date, time = timestamp.split(' ')
@@ -23,8 +24,11 @@ def parse_blog(blogdat: list):
     blog['timestamp'] = parse_timestamp(blogdat[1][:-1])
     blog['tags'] = re.sub(' ', '', blogdat[2][:-1]).lower().split(',')
     blog['nsfw'] = 'nsfw' in blog['tags']
-    blog['body'] = [line.replace('\n', '') for line in blogdat[4:]]
+    blog['body'] = [line.replace('\n', '') for line in blogdat[5:]]
     return blog
+
+
+blog_posts = []
 
 
 def render_blog(blog: dict):
@@ -73,6 +77,11 @@ def render_blog(blog: dict):
                 body_.append(line)
         return '\n<br>\n'.join(body_)
     body = render_body(blog['body'])
+    blog_posts.append({
+        'title': blog['title'],
+        'date': date,
+        'excerpt': blog['excerpt']
+    })
     return '''<!DOCTYPE html>
     <html>
         {head}
@@ -81,7 +90,7 @@ def render_blog(blog: dict):
             {timestamp}
             <br>
             <br>
-            {body}            
+            {body}
         </body>
     </html>
     '''.format(head='<head>\n<meta http-equiv="cache-control" content="max-age=0" />\n<meta http-equiv="cache-control" content="no-cache" />\n<meta http-equiv="expires" content="0" />\n<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />\n<meta http-equiv="pragma" content="no-cache" />\n<title>Masquerade Blog</title>\n</head>',
@@ -103,5 +112,74 @@ for file in os.listdir('./blogs'):
             blog_html = render_blog(parsed_blog)
             with open('./blog/%s.html' % blog_id, 'w') as blog:
                 blog.write(blog_html)
+            blog_posts[-1]['url'] = '/blog/%s.html' % blog_id
         console.info("Wrote blog id::%s" % blog_id)
-console.success("Finished blogging.")
+    index = []
+    for blog_post in blog_posts:
+        index.append(
+            '''<div class="col-md-6 item">
+                   <div class="item-in">
+                       <h4>{title}</h4>
+                       <div class="seperator"></div>
+                       <p>{date}: {excerpt}</p>
+                        <a href="{url}">Read More<i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+               </div>'''.format(
+                title=blog_post['title'],
+                date="%s/%s/%s" % (blog_post['date']['m'],
+                                   blog_post['date']['d'],
+                                   blog_post['date']['y']),
+                excerpt=blog_post['excerpt'],
+                url=blog_post['url']
+            ))
+        console.info("Created index entry for post \"%s\""%blog_post['title'])
+    rows = []
+    while len(index) > 0:
+        posts = index[:2]
+        index = index[2:]
+        rows.append('<div class="row">%s</div>' % '\n'.join(posts))
+    console.info("Created rows.")
+    index_html = '''<!DOCTYPE html>
+                    <html>
+
+                    <head>
+                        <meta http-equiv="cache-control" content="max-age=0" />
+                        <meta http-equiv="cache-control" content="no-cache" />
+                        <meta http-equiv="expires" content="0" />
+                        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+                        <meta http-equiv="pragma" content="no-cache" />
+                        <meta http-equiv="last-modified" content="Sun, 10 Feb 2013 14:00:46 GMT " />
+                        <meta charset="UTF-8">
+                        <title>Masq.</title>
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+                        <link rel="stylesheet" href="css/style.css">
+
+
+                    </head>
+
+                    <body>
+                        <section class="title container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>Masq<fade>uerade</fade> Blog</h1>
+                                    <div class="seperator"></div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Start Blog Layout -->
+                        <div class="container">
+                            %s
+                        </div>
+
+                    </body>
+
+                    </html>
+                    console.success("Finished blogging.")''' % '\n'.join(rows)
+    with open('index.html','w') as index_file:
+        index_file.write(index_html)
+    console.info("Wrote index HTML.")
+console.success("Finished blog iteration.")
