@@ -114,6 +114,8 @@ for file in os.listdir('./blogs'):
                 blog.write(blog_html)
             blog_posts[-1]['url'] = '/blog/%s.html' % blog_id
         console.info("Wrote blog id::%s" % blog_id)
+    blog_posts.sort(key=lambda blog_post: int(
+        blog_post['date']['m']) * 32 + int(blog_post['date']['d']) + int(blog_post['date']['y']) * 367)
     index = []
     for blog_post in blog_posts:
         index.append(
@@ -132,7 +134,8 @@ for file in os.listdir('./blogs'):
                 excerpt=blog_post['excerpt'],
                 url=blog_post['url']
             ))
-        console.info("Created index entry for post \"%s\""%blog_post['title'])
+        console.info("Created index entry for post \"%s\"" %
+                     blog_post['title'])
     rows = []
     while len(index) > 0:
         posts = index[:2]
@@ -178,7 +181,7 @@ for file in os.listdir('./blogs'):
                     </body>
 
                     </html>''' % '\n'.join(rows)
-    with open('index.html','w') as index_file:
+    with open('index.html', 'w') as index_file:
         index_file.write(index_html)
     console.info("Wrote index HTML.")
 console.success("Finished blog iteration.")
