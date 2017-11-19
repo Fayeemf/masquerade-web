@@ -1,14 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 body {
-  background: #aaa;
+  background: #fbfbfb;
   font-family: 'Merriweather', serif;
   font-size: 16px;
   color: #777;
 }
 
 fade {
-  color: #aff;
+  color: #abb;
 }
 
 
@@ -60,6 +60,11 @@ h1, h4 {
   padding: 40px;
   position: relative;
 }
+
+.item-in {
+  border: #abb 1px; border-style:solid;
+}
+
 .item .item-in:hover:before {
   width: 100%;
 }
