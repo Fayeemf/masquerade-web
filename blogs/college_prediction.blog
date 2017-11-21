@@ -1,0 +1,34 @@
+Predicting College Acceptance with AI
+10/12/17 7:43PM
+machine-learning, medium, college
+To "hack" my own college admissions process, I created an AI to help me predict where I could get into college! <a href="https://towardsdatascience.com/predicting-college-acceptance-with-ai-6d8abd702385">Original article on Medium with over 6 thousand claps.</a>
+
+This article first appeared in "Towards Data Science," a Medium publication on data science, machine learning and AI. <a href="https://towardsdatascience.com/predicting-college-acceptance-with-ai-6d8abd702385">See the original article with over 6 thousand claps here.</a>
+
+Around this time last year, I was busy rattling away on my keyboard, applying to colleges around the globe. As I filled out the seemingly endless application in front of me, it occurred to me that this was wholly inefficient and risky.
+
+Each year, over 2 million college applications are filed, and each of them comes with a certain element of chance. Even students of the highest academic caliber apply with an element of randomness, and often face difficult situations as a result — the intended meritocracy inherent in college admissions gives way to uncertainty, doubt, and anxiety.
+
+Of course, many factors influence admission, but it’s no secret that two factors heavily weigh in on determining acceptance: GPA and SAT/ACT scores. While other factors are certainly taken into consideration, it is statistically and practically undeniable that these two metrics hold incredible importance to a student’s application — although no one truly knows how these are judged and filtered by colleges.
+
+But at the end of the day, these two metrics are metrics: numbers that can be easily assessed using data science to analyze trends and relationships. And so, being extremely impatient and as anxious as I am, I decided to attempt to *predict college acceptance* rather than wait for decisions to roll out. And while there are thousands of statistical methods to analyze the trends between GPA/test scores and application outcome, I chose a recently popular predictive method: Machine Learning.
+
+Machine Learning is a broad field with many solutions and applications, but I honed in particularly on Artificial Neural Networks. Seeing as my inputs were entirely numeric and my output could be one-hot encoded into a binary value (0 for rejected, 1 for accepted), an ANN worked out quite nicely.
+
+After implementing an architecture in <a href="http://tensorflow.org">Tensorflow</a>, I trained my network on a dataset gathered for Carnegie Mellon in particular (just an example, with some 90 datapoints). After approximately 150,000 iterations (~1 minute on a GeForce 1060 GPU), I was able to reach an accuracy between *75–80%*. While this may not seem that accurate, it is significant enough to draw some conclusions, and definitely functions better than arbitrary linear models.
+
+[Loss over 150k iterations](https://cdn-images-1.medium.com/max/1600/1*zA2h3O0nagpr_RmOGZEenw.png)
+
+From the commandline I was able to gather some pretty decent results on college acceptance:
+
+[cmd](https://cdn-images-1.medium.com/max/1600/1*Yd9HCekZzIv-u3s9yCD9KA.png)
+
+(Beautiful logging courtesy of <a href="http://github.com/pshah123/console-logging">_console-logging_</a> built from source)
+
+After that I made a GUI using bootstrap (sorry):
+
+[bootstrap sucks](https://cdn-images-1.medium.com/max/1600/1*kT2IrWzPfdaQPCpPlzzOzg.png)
+
+All in all, it proved somewhat useful in not only calming my anxiety but filtering my applications to limit them to which schools I was likely to get into. _Ironically, it even predicted my rejection from Carnegie Mellon!_
+
+<a href="http://github.com/pshah123/ChanceyNN">The full source of the project is available on Github in this repo</a>.

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+                <html>
+                <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47879725-7"></script>
+                    <script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'UA-47879725-7');
+                    </script>
+                    
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<title>Masq Blog</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/blog.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>
+                <body>
+                    <div class="container">
+                    <h1><h1>Predicting College Acceptance with AI <small></small></h1></h1>
+                    <a href="../" style="
+                        font-weight: 800;
+                        text-decoration: unset;
+                    ">&lt; Back to Blog</a>
+                    <h6>Tagged: ['machine-learning', 'medium', 'college']
+                    <span>10/12/17 || 7:43PM</span></h6>
+                    <p><p>This article first appeared in "Towards Data Science," a Medium publication on data science, machine learning and AI. <a href="https://towardsdatascience.com/predicting-college-acceptance-with-ai-6d8abd702385">See the original article with over 6 thousand claps here.</a></p>
+<p></p>
+<p>Around this time last year, I was busy rattling away on my keyboard, applying to colleges around the globe. As I filled out the seemingly endless application in front of me, it occurred to me that this was wholly inefficient and risky.</p>
+<p></p>
+<p>Each year, over 2 million college applications are filed, and each of them comes with a certain element of chance. Even students of the highest academic caliber apply with an element of randomness, and often face difficult situations as a result — the intended meritocracy inherent in college admissions gives way to uncertainty, doubt, and anxiety.</p>
+<p></p>
+<p>Of course, many factors influence admission, but it’s no secret that two factors heavily weigh in on determining acceptance: GPA and SAT/ACT scores. While other factors are certainly taken into consideration, it is statistically and practically undeniable that these two metrics hold incredible importance to a student’s application — although no one truly knows how these are judged and filtered by colleges.</p>
+<p></p>
+<p>But at the end of the day, these two metrics are metrics: numbers that can be easily assessed using data science to analyze trends and relationships. And so, being extremely impatient and as anxious as I am, I decided to attempt to <b>predict college acceptance</b> rather than wait for decisions to roll out. And while there are thousands of statistical methods to analyze the trends between GPA/test scores and application outcome, I chose a recently popular predictive method: Machine Learning.</p>
+<p></p>
+<p>Machine Learning is a broad field with many solutions and applications, but I honed in particularly on Artificial Neural Networks. Seeing as my inputs were entirely numeric and my output could be one-hot encoded into a binary value (0 for rejected, 1 for accepted), an ANN worked out quite nicely.</p>
+<p></p>
+<p>After implementing an architecture in <a href="http://tensorflow.org">Tensorflow</a>, I trained my network on a dataset gathered for Carnegie Mellon in particular (just an example, with some 90 datapoints). After approximately 150,000 iterations (~1 minute on a GeForce 1060 GPU), I was able to reach an accuracy between <b>75–80%</b>. While this may not seem that accurate, it is significant enough to draw some conclusions, and definitely functions better than arbitrary linear models.</p>
+<p></p>
+<img src="https://cdn-images-1.medium.com/max/1600/1*zA2h3O0nagpr_RmOGZEenw.png" alt="Loss over 150k iterations">
+<p></p>
+<p>From the commandline I was able to gather some pretty decent results on college acceptance:</p>
+<p></p>
+<img src="https://cdn-images-1.medium.com/max/1600/1*Yd9HCekZzIv-u3s9yCD9KA.png" alt="cmd">
+<p></p>
+<p>(Beautiful logging courtesy of <a href="http://github.com/pshah123/console-logging"><i>console-logging</i></a> built from source)</p>
+<p></p>
+<p>After that I made a GUI using bootstrap (sorry):</p>
+<p></p>
+<img src="https://cdn-images-1.medium.com/max/1600/1*kT2IrWzPfdaQPCpPlzzOzg.png" alt="bootstrap sucks">
+<p></p>
+<p>All in all, it proved somewhat useful in not only calming my anxiety but filtering my applications to limit them to which schools I was likely to get into. <i>Ironically, it even predicted my rejection from Carnegie Mellon!</i></p>
+<p></p>
+<p><a href="http://github.com/pshah123/ChanceyNN">The full source of the project is available on Github in this repo</a>.</p></p><br><br><br><br><br>
+                    </div>
+                </body>
+                </html>
